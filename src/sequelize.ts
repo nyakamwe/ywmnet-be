@@ -1,10 +1,9 @@
 import { Sequelize } from 'sequelize-typescript'
-import { dbConfig } from './config/dbConfig'
-
+import { config } from './config/config'
 export const sequelize = new Sequelize({
-    'username': dbConfig.username,
-    'password': dbConfig.password,
-    'database': dbConfig.database,
-    'host': dbConfig.host,
+    'username': config.username,
+    'password': config.password,
+    'database': config.database,
+    'host': config.host,
     'dialect': 'postgres'
 });

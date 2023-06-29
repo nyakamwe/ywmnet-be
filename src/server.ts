@@ -2,6 +2,7 @@ import express, { Application, Request, Response } from 'express'
 import routes from './routes'
 import 'dotenv/config'
 import { sequelize } from './sequelize'
+import { USER_MODEL } from './models'
 
 const app: Application = express()
 const port = process.env.PORT || 9001
@@ -17,7 +18,9 @@ app.use('/api/v1', routes)
 
 const dbConnection = async()=>{
     try {
-        await sequelize.authenticate();
+        // await sequelize.authenticate();
+        await sequelize.addModels(USER_MODEL)
+        await sequelize.sync({ alter: true })
         console.log('Connection has been established successfully.');
         } 
         catch (error) {
