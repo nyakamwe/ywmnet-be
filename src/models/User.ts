@@ -19,6 +19,12 @@ export class User extends Model<User> {
     @Column
     public password!: string;
 
+    @Column({
+        type: DataType.ENUM('admin', 'normal'),
+        defaultValue: 'normal'
+    })
+    public role!: string;
+
     @CreatedAt
     public createdAt!: Date;
 

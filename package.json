@@ -5,7 +5,8 @@
   "main": "src/server.ts",
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only ./src/server.ts",
-    "db:seed:all": "babel-node ./node_modules/.bin/sequelize db:seed:all",
+    "seed:admin": "npx sequelize-cli db:seed --seed admin-seed --env development",
+    "db:seed:undo:all": "npx sequelize-cli db:seed:undo:all --env development",
     "build": "npx tsc"
   },
   "repository": {

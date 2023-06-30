@@ -9,6 +9,7 @@ module.exports = {
         id: uuidv4(),
         email: 'admin@ywmnet.com',
         password: await helper.password.hash('Password@12345'),
+        role: 'admin',
         createdAt: new Date(),
         updatedAt: new Date(),
       },

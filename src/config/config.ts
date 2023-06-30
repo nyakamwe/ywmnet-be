@@ -1,5 +1,5 @@
-import 'dotenv/config'
-
+// import 'dotenv/config'
+require('dotenv/config')
 export const config = {
     'username': process.env.POSTGRES_USERNAME,
     'password': process.env.POSTGRES_PASSWORD,
@@ -7,6 +7,6 @@ export const config = {
     'host': process.env.POSTGRES_HOST,
     'dialect': 'postgres',
     'jwt': {
-        'secret': process.env.JWT_SECRET
+        'secret': process.env.JWT_SECRET || 'ywmnet'
     }
 };
