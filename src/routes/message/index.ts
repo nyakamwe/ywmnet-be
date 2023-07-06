@@ -4,7 +4,10 @@ import { requireAuth } from '../../middlewares/authorization'
 
 const messageRouter = Router()
 
-messageRouter.get('/', requireAuth, listMessages)
+messageRouter.get('/', 
+// requireAuth, 
+listMessages
+)
 messageRouter.post('/create', sendMessage)
 
 export default messageRouter

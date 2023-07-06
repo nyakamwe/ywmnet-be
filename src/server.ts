@@ -3,12 +3,14 @@ import routes from './routes'
 import 'dotenv/config'
 import { sequelize } from './sequelize'
 import { USER_MODEL, POST_MODEL, PARTNER_MODEL, MESSAGE_MODEL } from './models'
+import cors from 'cors'
 
 const app: Application = express()
 const port = process.env.PORT || 9001
 
 // Body parsing Middleware
 app.use(express.json());
+app.use(cors())
 app.use(express.urlencoded({ extended: true }));
 app.get('/', async(req: Request, res: Response): Promise<Response> => {
     return res.status(200).send({ message: `Welcome to the ywmnet API! \n Endpoints available at http://localhost:${port}/api/v1` })

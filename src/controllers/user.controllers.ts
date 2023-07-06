@@ -19,13 +19,13 @@ export async function login(req: Request, res: Response) {
 
   const user = await User.findOne({ where: { email } });
   if (!user) {
-    return res.status(401).json({ auth: false, message: 'User was not found..' });
+    return res.status(404).json({ auth: false, message: 'User was not found..' });
   }
 
   const authValid = await helper.password.compare(password, user.password);
 
   if (!authValid) {
-    return res.status(401).json({ auth: false, message: 'Password was invalid.' });
+    return res.status(400).json({ auth: false, message: 'Password was invalid.' });
   }
 
   const jwt = await helper.token.generate(user);
