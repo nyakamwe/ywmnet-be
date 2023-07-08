@@ -7,6 +7,7 @@ import cors from 'cors'
 
 const app: Application = express()
 const port = process.env.PORT || 9001
+const mode = process.env.NODE_ENV
 
 // Body parsing Middleware
 app.use(express.json());
@@ -28,6 +29,7 @@ const dbConnection = async()=>{
 
         await sequelize.sync({ alter: true })
         console.log('Connection has been established successfully.');
+        console.log('WITH MODE OF', mode);
         } 
         catch (error) {
         console.error('Unable to connect to the database:', error);
