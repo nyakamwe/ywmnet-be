@@ -9,7 +9,7 @@
     "seed:admin": "npx sequelize-cli db:seed --seed admin-seed --env development",
     "db:seed:undo:all": "npx sequelize-cli db:seed:undo:all --env development",
     "build": "npx tsc",
-    "deploy": "npm run build && npm start"
+    "deploy": "npm run build && npm start && npm run seed:admin "
   },
   "repository": {
     "type": "git",
