@@ -5,9 +5,11 @@
   "main": "src/server.ts",
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only ./src/server.ts",
+    "start": "ts-node dist/server.js",
     "seed:admin": "npx sequelize-cli db:seed --seed admin-seed --env development",
     "db:seed:undo:all": "npx sequelize-cli db:seed:undo:all --env development",
-    "build": "npx tsc"
+    "build": "npx tsc",
+    "deploy": "npm run build && npm start"
   },
   "repository": {
     "type": "git",

@@ -1,36 +1,52 @@
-import {Table, Column, Model, DataType, Default, Unique,CreatedAt, UpdatedAt} from 'sequelize-typescript';
+import {Table, Column, Model, DataType, Default,CreatedAt, UpdatedAt, Sequelize } from 'sequelize-typescript';
 import { v4 as uuidv4 } from 'uuid'
+
+interface IMessage {
+    id: string;
+    firstName: string;
+    lastName: string;
+    message: string;
+    email: string;
+    phoneNumber: string;
+    createdAt: Date;
+    updatedAt: Date;
+}
 
 @Table({
     tableName: 'messages',
     timestamps: true
 })
-export class Message extends Model<Message> {
+
+export class Message extends Model{
     @Default(uuidv4)
     @Column({
         primaryKey: true,
         type: DataType.UUID
     })
-    public id!: string;
+    id!: string;
   
     @Column
-    public firstName!: string;
+    firstName!: string;
 
     @Column
-    public lastName!: string;
+    lastName!: string;
 
     @Column
-    public message!: string;
+    message!: string;
 
     @Column
-    public email!: string;
+    email!: string;
   
     @Column
-    public phoneNumber!: string;
+    phoneNumber!: string;
 
     @CreatedAt
-    public createdAt!: Date;
+    @Default(DataType.NOW)
+    @Column
+    createdAt!: Date;
 
     @UpdatedAt
-    public updatedAt!: Date
+    @Default(DataType.NOW)
+    @Column
+    updatedAt!: Date
 }

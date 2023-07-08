@@ -11,4 +11,7 @@ module.exports = {
     dialect: config.dialect,
     seederStorage: 'sequelize',
   },
+  production: {
+    PROD_URL: config.PROD_URL
+  }
 };

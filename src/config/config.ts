@@ -8,5 +8,6 @@ export const config = {
     'dialect': 'postgres',
     'jwt': {
         'secret': process.env.JWT_SECRET || 'ywmnet'
-    }
+    },
+    'PROD_URL': process.env.PROD_URL
 };

@@ -8,7 +8,7 @@ export async function listMessages(req: Request, res: Response){
     })
 }
 
-export async function sendMessage(req: Request, res: Response){
+export async function sendMessage(req: Request, res: Response): Promise<Response>{
     const { 
         firstName,
         lastName,
@@ -22,15 +22,15 @@ export async function sendMessage(req: Request, res: Response){
             error: 'All are needed!'
         })
     }
-
     const newMessage = await Message.create({
-        firstName,
-        lastName,
-        email,
-        message,
-        phoneNumber
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        message: message,
+        phoneNumber: phoneNumber,
     })
+
     return res.status(201).json({
-        response: newMessage
+      response: newMessage,
     })
 }

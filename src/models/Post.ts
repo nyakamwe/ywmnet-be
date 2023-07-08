@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid'
     tableName: 'posts',
     timestamps: true
 })
-export class Post extends Model<Post> {
+export class Post extends Model {
     @Default(uuidv4)
     @Column({
         primaryKey: true, 

@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid'
     tableName: 'partners',
     timestamps: true
 })
-export class Partner extends Model<Partner> {
+export class Partner extends Model{
     @Default(uuidv4)
     @Column({
         primaryKey: true, 
